@@ -1,0 +1,10 @@
+version: '3'
+services:
+  front:
+    container_name: front
+    image: node:20.10.0-bullseye-slim
+    tty: true
+    volumes:
+      - .:/home/node/app
+    ports:
+      - "5173:5173"
