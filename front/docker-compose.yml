@@ -2,7 +2,10 @@ version: '3'
 services:
   front:
     container_name: front
-    image: node:20.10.0-bullseye-slim
+    build:
+      context: .
+      dockerfile: Dockerfile
+   # image: node:20.10.0-bullseye-slim
     tty: true
     volumes:
       - .:/home/node/app:cached
