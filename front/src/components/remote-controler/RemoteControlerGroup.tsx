@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { ButtonProps, RemoteControlerButton } from "./RemoteControlerButton";
+import styles from "./RemoteControlerGroup.module.scss";
 
 interface GroupProps {
   buttonProps: Array<ButtonProps>;
@@ -7,9 +8,11 @@ interface GroupProps {
 
 export const RemoteControlerGroup: FC<GroupProps> = ({ buttonProps = [] }) => {
   const buttons = buttonProps.map((item) => {
-    return <RemoteControlerButton 
-    buttonText={item.buttonText} 
-    onClick={item.onClick} />;
+    return (
+      <div className={styles.buttonPadding} key={item.buttonText}>
+        <RemoteControlerButton buttonText={item.buttonText} onClick={item.onClick} />
+      </div>
+    );
   });
   return buttons;
 };

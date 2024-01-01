@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Button from "@mui/material/Button";
-//import styles from "./Setting.module.scss";
+import styles from "./RemoteControlerButton.module.scss";
 
 export interface ButtonProps {
   buttonText: string;
@@ -9,8 +9,8 @@ export interface ButtonProps {
 
 export const RemoteControlerButton: FC<ButtonProps> = ({ buttonText, onClick }) => {
   return (
-    <Button variant="contained" onClick={onClick}>
-      {buttonText}
+    <Button className={styles.button} variant="contained" onClick={onClick}>
+      <span>{buttonText}</span>
     </Button>
   );
 };
