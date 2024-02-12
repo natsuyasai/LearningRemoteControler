@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    build: ./database
+    container_name: postgres
+    env_file:
+      - ./database/db.env
+    volumes:
+      - ./database/data:/var/lib/postgresql/data #実データの永読化
+      - ./database/log:/var/log/postgresql #logの永読化
+      - ./database/init:/docker-entrypoint-initdb.d #初期データの登録
+    tty: true
+    ports:
+      - 5432:5432
